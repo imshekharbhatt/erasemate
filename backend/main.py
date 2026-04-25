@@ -35,16 +35,26 @@ app = FastAPI(
 
 # ─── Middleware ──────────────────────────────────────────────────────────────
 app.add_middleware(GZipMiddleware, minimum_size=1000)
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        os.getenv("FRONTEND_URL", "http://localhost:5173"),
-        "https://erasemate.vercel.app",
-        "https://*.vercel.app",
+        FRONTEND_URL,
+        "http://localhost:5173",
+        "http://localhost:3000",
     ],
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=[
+        "X-Processing-Time-Ms",
+        "X-Model-Used",
+        "X-Original-Size",
+        "X-Output-Bytes",
+        "X-Result-URL",
+    ],
 )
 
 # ─── Config ──────────────────────────────────────────────────────────────────
