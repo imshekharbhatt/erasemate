@@ -20,4 +20,4 @@ RUN python -c "from rembg import new_session; new_session('u2net'); new_session(
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "gunicorn main:app -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:${PORT:-8080} --workers 2 --timeout 120 --keep-alive 5"]
+CMD ["sh", "-c", "gunicorn main:app -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:${PORT:-8080} --workers 1 --timeout 120"]
