@@ -35,11 +35,8 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-white border-t border-line py-12 px-10">
-      <div
-        className="max-w-[1200px] mx-auto grid gap-12"
-        style={{ gridTemplateColumns: "200px 1fr 1fr 1fr" }}
-      >
+    <footer className="bg-white border-t border-line py-12 px-4 sm:px-6 lg:px-10">
+      <div className="max-w-[1200px] mx-auto grid gap-8 sm:gap-10 lg:gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[200px_1fr_1fr_1fr]">
         {/* Brand */}
         <div>
           <div className="flex items-center gap-2 text-[17px] font-extrabold text-text tracking-tight mb-3">
@@ -125,11 +122,11 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="max-w-[1200px] mx-auto mt-9 pt-6 border-t border-line flex items-center justify-between flex-wrap gap-3">
+      <div className="max-w-[1200px] mx-auto mt-9 pt-6 border-t border-line flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <p className="text-[12.5px] text-muted2">
           © {year} EraseMate. All rights reserved.
         </p>
-        <div className="flex gap-5">
+        <div className="flex flex-wrap gap-4 sm:gap-5">
           {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((t) => (
             <a
               key={t}
