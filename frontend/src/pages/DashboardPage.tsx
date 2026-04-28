@@ -77,7 +77,7 @@ export default function DashboardPage() {
             </div>
             <div>
               <h1 className="text-[22px] sm:text-[26px] font-extrabold text-text tracking-tight">
-                Welcome back, {name} 👋
+                Welcome back, {name} 
               </h1>
               <p className="text-[13px] text-muted mt-0.5">{user?.email}</p>
             </div>
